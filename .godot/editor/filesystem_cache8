@@ -1,3 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706086668
-icon.svg::CompressedTexture2D::314104643424935448::1706086656::1706086668::1::::<><>::
+::res://::1706350837
+icon.svg::CompressedTexture2D::5546362201971954640::1706086656::1706350840::1::::<><>::
+::res://Player/::1706086901
+::res://Test Scenes/::1706350837
+Combat Test.tscn::PackedScene::-1::1706350837::0::1::::<><>::
+PlayerController.gd::GDScript::-1::1706350837::0::1::::<>CharacterBody3D<>::
