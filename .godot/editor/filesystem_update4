@@ -1,2 +1,15 @@
 res://Test Scenes/Combat Test.tscn
 res://Test Scenes/PlayerController.gd
+res://Player/Weapons/BasicScythe.gd
+res://Player/PlayerController.gd
+res://Player/scythe_attributes.gd
+res://Player/Weapons/ScytheAttributes.tres
+res://Player/Weapons/Basic/BasicScythe.gd
+res://Player/Weapons/Basic/BasicScytheProjectile.tscn
+res://Player/Weapons/Basic/BasicScytheSwing.tscn
+res://Player/Weapons/Basic/BasicScytheSwing.gd
+res://Player/Weapons/Basic/BasicScytheSwingReverse.tscn
+res://Player/Weapons/BasicScytheAttributes.tres
+res://Player/Weapons/scythe_attributes.gd
+res://Player/Weapons/Attack.gd
+res://Player/Weapons/Basic/BasicScytheToss.gd

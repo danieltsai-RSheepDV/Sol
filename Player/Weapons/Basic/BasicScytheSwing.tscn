@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ftv257bol08b"]
+
+[ext_resource type="Script" path="res://Player/Weapons/Basic/BasicScytheSwing.gd" id="1_0igqm"]
+[ext_resource type="Texture2D" uid="uid://clax1mb25j4l5" path="res://icon.svg" id="2_vpm0o"]
+
+[node name="Scythe" type="Node3D"]
+script = ExtResource("1_0igqm")
+attackLength = 0.25
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+cast_shadow = 0
+alpha_cut = 2
+texture = ExtResource("2_vpm0o")

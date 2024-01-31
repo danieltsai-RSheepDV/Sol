@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ScytheAttributes" load_steps=5 format=3 uid="uid://d1la3nc2awyi7"]
+
+[ext_resource type="PackedScene" uid="uid://ftv257bol08b" path="res://Player/Weapons/Basic/BasicScytheSwing.tscn" id="1_e682n"]
+[ext_resource type="PackedScene" uid="uid://ddlalk7uabsni" path="res://Player/Weapons/Basic/BasicScytheSwingReverse.tscn" id="2_8rfa8"]
+[ext_resource type="PackedScene" uid="uid://338eojugcih8" path="res://Player/Weapons/Basic/BasicScytheProjectile.tscn" id="3_adghq"]
+[ext_resource type="Script" path="res://Player/Weapons/scythe_attributes.gd" id="4_5soqp"]
+
+[resource]
+script = ExtResource("4_5soqp")
+attacks = Array[PackedScene]([ExtResource("1_e682n"), ExtResource("2_8rfa8"), ExtResource("3_adghq")])
