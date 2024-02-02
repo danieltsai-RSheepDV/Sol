@@ -13,3 +13,4 @@ res://Player/Weapons/BasicScytheAttributes.tres
 res://Player/Weapons/scythe_attributes.gd
 res://Player/Weapons/Attack.gd
 res://Player/Weapons/Basic/BasicScytheToss.gd
+res://Library/trail_3d.gd

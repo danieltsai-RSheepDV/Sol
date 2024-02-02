@@ -29,21 +29,24 @@ func _input(event):
 		targetVelocity = Vector3.ZERO
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-	
-	# Update Velocity
-	var xDif = targetVelocity.x - velocity.x
-	var xAccel = accel if (abs(velocity.x) > SMALL_NUMBER) else decel
-	velocity.x += delta * pow(abs(xDif) * xAccel, velPower) * sign(xDif)
-	
-	var zDif = targetVelocity.z - velocity.z
-	var zAccel = accel if (abs(velocity.z) > SMALL_NUMBER) else decel
-	velocity.z += delta * pow(abs(zDif) * zAccel, velPower) * sign(zDif)
-	
-	if Input.is_action_just_pressed("Dash"):
-		velocity = targetVelocity.normalized() * 50
+	if combo_count < 0 || combo_count > 1:
+		# Add the gravity.
+		if not is_on_floor():
+			velocity.y -= gravity * delta
+		
+		# Update Velocity
+		var xDif = targetVelocity.x - velocity.x
+		var xAccel = accel if (abs(velocity.x) > SMALL_NUMBER) else decel
+		velocity.x += delta * pow(abs(xDif) * xAccel, velPower) * sign(xDif)
+		
+		var zDif = targetVelocity.z - velocity.z
+		var zAccel = accel if (abs(velocity.z) > SMALL_NUMBER) else decel
+		velocity.z += delta * pow(abs(zDif) * zAccel, velPower) * sign(zDif)
+		
+		if Input.is_action_just_pressed("Dash"):
+			velocity = targetVelocity.normalized() * 50
+		
+		move_and_slide()
 	
 	# Attack Timer
 	attack_timer -= delta
@@ -53,15 +56,13 @@ func _physics_process(delta):
 		combo_count = -1
 		attack_timer = attack_delay
 
-	move_and_slide()
-
 # Attack
 @onready var basicScytheAttributes = load("res://Player/Weapons/Basic/BasicScytheAttributes.tres")
 
 var attackObjs = []
 
 var combo_count = -1
-const attack_delay = 0.2
+const attack_delay = 0
 var attack_timer = 0
 
 func loadScythe(attr: ScytheAttributes):
@@ -76,8 +77,8 @@ func attempt_attack():
 		combo_count = 0
 		
 		var curAtk = getCurrentAttack()
-		curAtk.init(self)
 		curAtk.position = position
+		curAtk.init(self)
 		owner.add_child(curAtk)
 	else:
 		var curAtk = getCurrentAttack()
@@ -87,8 +88,8 @@ func attempt_attack():
 			combo_count += 1
 			
 			curAtk = getCurrentAttack()
-			curAtk.init(self)
 			curAtk.position = position
+			curAtk.init(self)
 			owner.add_child(curAtk)
 		
 func getCurrentAttack():

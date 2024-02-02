@@ -11,6 +11,7 @@ var revMult = 1
 
 var t
 var dir
+var old_pos
 
 
 func init(p):
@@ -20,20 +21,33 @@ func init(p):
 	
 	t = 0
 	dir = player.facingDirection
+	
+	old_pos = position
+	
+	$Trail3D.clear_points()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(t < 0.6):
-		var t0 = (ease(t, 0.1) - 0.5) * PI/2
-		
-		var localPos = Vector3(swingWidth * sin(t0 * revMult), 0, swingDepth * (cos(t0) - 0.707106781187) + swingDistance)
-		localPos = localPos.rotated(Vector3.UP, Vector3.BACK.signed_angle_to(dir, Vector3.UP))
-		position = player.position + localPos
-		
-		t += delta * timeIncrement
+	old_pos = position
+	
+	var t0 = (ease(t, 0.1) - 0.5) * 5
+	
+	if(t > 0.5):
+		t0 = (ease(0.5, 0.1) - 0.5) * 5
+	else:
+		look_at(player.position + calcLocalPos(t0 + 0.01), Vector3.UP)
+	
+	position = player.position + calcLocalPos(t0)
+	
+	t += delta * timeIncrement
+
+func calcLocalPos(t0):
+	var localPos = Vector3(swingWidth * sin(t0 * revMult), -t0 * 0.15, swingDepth * (cos(t0) - 0.707106781187) + swingDistance)
+	localPos = localPos.rotated(Vector3.UP, Vector3.BACK.signed_angle_to(dir, Vector3.UP))
+	return localPos
 
 func _isCompleted():
-	return t > 0.6
+	return t > 1.4
 
 func _isComboReady():
 	return t > 0.3
