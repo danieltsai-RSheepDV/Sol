@@ -1,8 +1,8 @@
 extends Attack
 
-@export var speed = 40.0
+@export var speed = 60.0
 @export var arcSpeed = 2.0
-@export var maxDistance = 8.0
+@export var maxDistance = 12.0
 @export var arcSize = 2.0
 
 var deceleration
@@ -26,9 +26,8 @@ func init(p):
 	dir = dir.normalized()
 	t = -2.5
 	endT = -acos(arcSize / maxDistance)
-	print(endT)
 	
-	curSpeed = speed + player.velocity.length()
+	curSpeed = speed
 	completed = false
 	
 	$Trail3D.clear_points()

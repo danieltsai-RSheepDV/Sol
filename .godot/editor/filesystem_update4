@@ -14,3 +14,9 @@ res://Player/Weapons/scythe_attributes.gd
 res://Player/Weapons/Attack.gd
 res://Player/Weapons/Basic/BasicScytheToss.gd
 res://Library/trail_3d.gd
+res://Player/Movement/BasicMovement.gd
+res://Player/Movement/MovementBase.gd
+res://Player/Movement/DashMovement.gd
+res://Player/Weapons/Basic/BasicScytheAttributes.tres
+res://Player/Weapons/attack_attributes.gd
+res://Player/Movement/DashToBasicMovement.gd

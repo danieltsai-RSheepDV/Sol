@@ -23,6 +23,10 @@ window/vsync/vsync_mode=0
 
 project/assembly_name="Sol-s Delivery"
 
+[editor_plugins]
+
+enabled=PackedStringArray()
+
 [input]
 
 Up={

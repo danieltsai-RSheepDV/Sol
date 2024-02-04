@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqsroe50yh8n3"]
+
+[ext_resource type="Texture2D" uid="uid://clax1mb25j4l5" path="res://icon.svg" id="1_cgngt"]
+[ext_resource type="Script" path="res://Player/PlayerController.gd" id="1_qok2m"]
+[ext_resource type="Texture2D" uid="uid://6rbsr6vapf40" path="res://Test Scenes/360_F_442587657_K24dNb1n25pyFvVHPCmwqkgdz3UjpMUJ.jpg" id="3_r12wk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t5mhs"]
+size = Vector3(1.3, 1.24819, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8tgxs"]
+size = Vector3(100, 0.1, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fknm2"]
+albedo_texture = ExtResource("3_r12wk")
+
+[node name="CombatTest" type="Node3D"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49839, 0)
+script = ExtResource("1_qok2m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0259032, 0)
+shape = SubResource("BoxShape3D_t5mhs")
+
+[node name="Sprite3D" type="Sprite3D" parent="Player"]
+cast_shadow = 0
+alpha_cut = 2
+texture = ExtResource("1_cgngt")
+
+[node name="Cam" type="Node3D" parent="Player"]
+transform = Transform3D(1, -4.75484e-16, 3.24962e-16, 3.24962e-16, 0.931691, 0.363251, -4.75484e-16, -0.363251, 0.931691, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Cam"]
+transform = Transform3D(1, -3.30533e-16, 3.48309e-16, 3.48309e-16, 0.99863, -0.052336, -3.30533e-16, 0.052336, 0.99863, 2.08165e-12, 2.08165e-12, 13.89)
+fov = 70.0
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.23112, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+shape = SubResource("BoxShape3D_8tgxs")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor"]
+size = Vector3(100, 0.1, 100)
+material = SubResource("StandardMaterial3D_fknm2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.664878, 0.746952, 0, -0.746952, 0.664878, -3.90758, 2.94059, 6.078)
+shadow_enabled = true

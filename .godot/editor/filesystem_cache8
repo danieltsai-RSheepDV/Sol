@@ -1,20 +1,27 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706844624
+::res://::1706845977
 export_presets.cfg::TextFile::-1::1706395682::0::1::::<><>::
 icon.svg::CompressedTexture2D::5546362201971954640::1706086656::1706350840::1::::<><>::
 ::res://Builds/::1706395681
-::res://Player/::1706612010
-PlayerController.gd::GDScript::-1::1706612010::0::1::::<>CharacterBody3D<>::
-::res://Player/Weapons/::1706611578
+::res://Library/::1706853741
+trail_3d.gd::GDScript::-1::1706853741::0::1::::Trail3D<>MeshInstance3D<>::
+::res://Player/::1706919370
+PlayerController.gd::GDScript::-1::1706919370::0::1::::<>CharacterBody3D<>::
+::res://Player/Movement/::1706917997
+BasicMovement.gd::GDScript::-1::1706908927::0::1::::BasicMovement<>MovementBase<>::
+MovementBase.gd::GDScript::-1::1706917997::0::1::::MovementBase<>Resource<>::
+DashMovement.gd::GDScript::-1::1706917411::0::1::::DashMovement<>MovementBase<>::
+::res://Player/Weapons/::1706918681
 Attack.gd::GDScript::-1::1706611578::0::1::::Attack<>Node3D<>::
-scythe_attributes.gd::GDScript::-1::1706605637::0::1::::ScytheAttributes<>Resource<>::
-::res://Player/Weapons/Basic/::1706844647
-BasicScytheAttributes.tres::Resource/ScytheAttributes::9006930830312949664::1706520877::0::1::::<><>::uid://ftv257bol08b::::res://Player/Weapons/Basic/BasicScytheSwing.tscn<>uid://ddlalk7uabsni::::res://Player/Weapons/Basic/BasicScytheSwingReverse.tscn<>uid://338eojugcih8::::res://Player/Weapons/Basic/BasicScytheProjectile.tscn<>res://Player/Weapons/scythe_attributes.gd
-BasicScytheProjectile.tscn::PackedScene::2025101753062449759::1706844522::0::1::::<><>::res://Player/Weapons/Basic/BasicScytheToss.gd<>uid://clax1mb25j4l5::::res://icon.svg
-BasicScytheSwing.gd::GDScript::-1::1706842911::0::1::::<>Attack<>::
-BasicScytheSwing.tscn::PackedScene::391492293999677727::1706844647::0::1::::<><>::res://Player/Weapons/Basic/BasicScytheSwing.gd<>uid://clax1mb25j4l5::::res://icon.svg
-BasicScytheSwingReverse.tscn::PackedScene::7392556956597023506::1706844522::0::1::::<><>::res://Player/Weapons/Basic/BasicScytheSwing.gd<>uid://clax1mb25j4l5::::res://icon.svg
-BasicScytheToss.gd::GDScript::-1::1706612073::0::1::::<>Attack<>::
-::res://Test Scenes/::1706844522
+new_script.gd::GDScript::-1::1706919795::0::1::::<>Resource<>::
+scythe_attributes.gd::GDScript::-1::1706918681::0::1::::ScytheAttributes<>Resource<>::
+::res://Player/Weapons/Basic/::1706918599
+BasicScytheAttributes.tres::Resource/ScytheAttributes::9006930830312949664::1706918599::0::1::::<><>::uid://ftv257bol08b::::res://Player/Weapons/Basic/BasicScytheSwing.tscn<>uid://ddlalk7uabsni::::res://Player/Weapons/Basic/BasicScytheSwingReverse.tscn<>uid://338eojugcih8::::res://Player/Weapons/Basic/BasicScytheProjectile.tscn<>res://Player/Movement/DashMovement.gd<>res://Player/Weapons/scythe_attributes.gd
+BasicScytheProjectile.tscn::PackedScene::2025101753062449759::1706918342::0::1::::<><>::res://Player/Weapons/Basic/BasicScytheToss.gd<>uid://clax1mb25j4l5::::res://icon.svg<>res://Library/trail_3d.gd
+BasicScytheSwing.gd::GDScript::-1::1706907886::0::1::::<>Attack<>::
+BasicScytheSwing.tscn::PackedScene::391492293999677727::1706918342::0::1::::<><>::res://Player/Weapons/Basic/BasicScytheSwing.gd<>uid://clax1mb25j4l5::::res://icon.svg<>res://Library/trail_3d.gd
+BasicScytheSwingReverse.tscn::PackedScene::7392556956597023506::1706918342::0::1::::<><>::res://Player/Weapons/Basic/BasicScytheSwing.gd<>uid://clax1mb25j4l5::::res://icon.svg<>res://Library/trail_3d.gd
+BasicScytheToss.gd::GDScript::-1::1706908594::0::1::::<>Attack<>::
+::res://Test Scenes/::1706919370
 360_F_442587657_K24dNb1n25pyFvVHPCmwqkgdz3UjpMUJ.jpg::CompressedTexture2D::2211042377621704287::1706398759::1706405118::1::::<><>::
-Combat Test.tscn::PackedScene::3547658429072198066::1706844522::0::1::::<><>::uid://clax1mb25j4l5::::res://icon.svg<>res://Player/PlayerController.gd<>uid://6rbsr6vapf40::::res://Test Scenes/360_F_442587657_K24dNb1n25pyFvVHPCmwqkgdz3UjpMUJ.jpg
+Combat Test.tscn::PackedScene::3547658429072198066::1706919370::0::1::::<><>::uid://clax1mb25j4l5::::res://icon.svg<>res://Player/PlayerController.gd<>uid://6rbsr6vapf40::::res://Test Scenes/360_F_442587657_K24dNb1n25pyFvVHPCmwqkgdz3UjpMUJ.jpg

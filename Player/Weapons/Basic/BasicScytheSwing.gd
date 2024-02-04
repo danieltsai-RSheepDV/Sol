@@ -1,8 +1,8 @@
 extends Attack
 
-@export var swingDistance = 1.5
-@export var swingWidth = 2
-@export var swingDepth = 2
+@export var swingDistance = 2.0
+@export var swingWidth = 2.0
+@export var swingDepth = 2.0
 @export var reversed = false
 
 var player
@@ -25,6 +25,7 @@ func init(p):
 	old_pos = position
 	
 	$Trail3D.clear_points()
+	$Trail3D.referenceObject = player
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -47,7 +48,7 @@ func calcLocalPos(t0):
 	return localPos
 
 func _isCompleted():
-	return t > 1.4
+	return t > 1
 
 func _isComboReady():
-	return t > 0.3
+	return t > 0.4

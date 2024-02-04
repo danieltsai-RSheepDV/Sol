@@ -9,11 +9,11 @@ transparency = 1
 cull_mode = 2
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_color = Color(0, 0, 1, 1)
+albedo_color = Color(0, 0, 1, 0.501961)
 
 [node name="Scythe" type="Node3D"]
 script = ExtResource("1_0igqm")
-attackLength = 0.15
+attackLength = 0.25
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
@@ -25,6 +25,5 @@ texture = ExtResource("2_vpm0o")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 material_override = SubResource("StandardMaterial3D_3ei77")
 script = ExtResource("3_jyc0y")
-_fromWidth = 0.75
-_toWidth = 0.25
+_toWidth = 0.5
 _lifespan = 0.15

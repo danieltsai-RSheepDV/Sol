@@ -11,8 +11,8 @@
 [sub_resource type="Resource" id="Resource_gx56y"]
 script = ExtResource("4_8abpt")
 distance = 1.0
-useDuration = true
-duration = 0.05
+useDuration = false
+duration = 0.0
 
 [sub_resource type="Resource" id="Resource_r5whr"]
 script = ExtResource("3_4lve7")
@@ -22,8 +22,8 @@ movement = SubResource("Resource_gx56y")
 [sub_resource type="Resource" id="Resource_qm64g"]
 script = ExtResource("4_8abpt")
 distance = 1.0
-useDuration = true
-duration = 0.05
+useDuration = false
+duration = 0.0
 
 [sub_resource type="Resource" id="Resource_mh2yl"]
 script = ExtResource("3_4lve7")
@@ -33,7 +33,7 @@ movement = SubResource("Resource_qm64g")
 [sub_resource type="Resource" id="Resource_p08gm"]
 script = ExtResource("5_odk3h")
 distance = 2.0
-pauseTime = 0.15
+pauseTime = 0.3
 
 [sub_resource type="Resource" id="Resource_pmt0r"]
 script = ExtResource("3_4lve7")

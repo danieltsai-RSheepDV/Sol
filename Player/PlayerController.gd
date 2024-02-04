@@ -1,17 +1,6 @@
 extends CharacterBody3D
 
-const SMALL_NUMBER = 0.1
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-
-const speed = 8.0
-const accel = 16
-const decel = 16
-const velPower = 1
-
-# Internal Variables
-var targetVelocity = Vector3(0, 0, 0)
-var facingDirection = Vector3(1, 0, 0)
-
+#region Lifecycle
 func _ready():
 	loadScythe(basicScytheAttributes)
 
@@ -19,35 +8,11 @@ func _input(event):
 	# Attack input
 	if Input.is_action_just_pressed("Attack"):
 		attempt_attack()
-	# Get movement input
-	var input_dir = Input.get_vector("Left", "Right", "Up", "Down")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		targetVelocity = direction * speed
-		facingDirection = direction
-	else:
-		targetVelocity = Vector3.ZERO
+	
+	# Movement
+	movementController.input()
 
 func _physics_process(delta):
-	if combo_count < 0 || combo_count > 1:
-		# Add the gravity.
-		if not is_on_floor():
-			velocity.y -= gravity * delta
-		
-		# Update Velocity
-		var xDif = targetVelocity.x - velocity.x
-		var xAccel = accel if (abs(velocity.x) > SMALL_NUMBER) else decel
-		velocity.x += delta * pow(abs(xDif) * xAccel, velPower) * sign(xDif)
-		
-		var zDif = targetVelocity.z - velocity.z
-		var zAccel = accel if (abs(velocity.z) > SMALL_NUMBER) else decel
-		velocity.z += delta * pow(abs(zDif) * zAccel, velPower) * sign(zDif)
-		
-		if Input.is_action_just_pressed("Dash"):
-			velocity = targetVelocity.normalized() * 50
-		
-		move_and_slide()
-	
 	# Attack Timer
 	attack_timer -= delta
 	var curAtk = getCurrentAttack()
@@ -55,11 +20,18 @@ func _physics_process(delta):
 		curAtk.remove()
 		combo_count = -1
 		attack_timer = attack_delay
+		movementController = defaultMovement
+		movementController.reset()
+	
+	# Movement
+	movementController.move(delta)
+#endregion
 
-# Attack
+#region Attack
 @onready var basicScytheAttributes = load("res://Player/Weapons/Basic/BasicScytheAttributes.tres")
 
 var attackObjs = []
+var movementModules = []
 
 var combo_count = -1
 const attack_delay = 0
@@ -67,7 +39,10 @@ var attack_timer = 0
 
 func loadScythe(attr: ScytheAttributes):
 	for scn in attr.attacks:
-		attackObjs.append(scn.instantiate())
+		attackObjs.append(scn.obj.instantiate())
+		scn.movement.player = self
+		movementModules.append(scn.movement)
+		
 
 func attempt_attack():
 	if(!getCurrentAttack()):
@@ -76,10 +51,7 @@ func attempt_attack():
 		
 		combo_count = 0
 		
-		var curAtk = getCurrentAttack()
-		curAtk.position = position
-		curAtk.init(self)
-		owner.add_child(curAtk)
+		loadCurrentAttack()
 	else:
 		var curAtk = getCurrentAttack()
 		if(curAtk._isComboReady()):
@@ -87,13 +59,30 @@ func attempt_attack():
 			
 			combo_count += 1
 			
-			curAtk = getCurrentAttack()
-			curAtk.position = position
-			curAtk.init(self)
-			owner.add_child(curAtk)
+			loadCurrentAttack()
+			
+
+func loadCurrentAttack():
+	var curAtk = getCurrentAttack()
+	curAtk.position = position
+	curAtk.init(self)
+	owner.add_child(curAtk)
+	
+	movementController = movementModules[combo_count]
+	movementController.reset()
 		
 func getCurrentAttack():
 	if(combo_count >= 0):
 		return attackObjs[combo_count]
 	else:
 		return false
+#endregion
+
+#region Movement
+
+var facingDirection = Vector3(1, 0, 0)
+
+var defaultMovement = BasicMovement.new(self)
+var movementController = defaultMovement
+
+#endregion

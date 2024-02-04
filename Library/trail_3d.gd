@@ -22,6 +22,20 @@ var _lifePoints = []
 @export var _lifespan : float = 1.0
 
 var _oldPos : Vector3
+var referenceObject
+
+var relative_basis :
+	get:
+		if referenceObject != null:
+			return (global_position - referenceObject.position).normalized()
+		else:
+			return global_transform.basis.x
+var reference_offset:
+	get:
+		if referenceObject != null:
+			return referenceObject.position
+		else:
+			return Vector3.ZERO
 
 func _ready():
 	_oldPos = global_transform.origin
@@ -64,16 +78,16 @@ func _process(delta):
 		var t1 = t
 		
 		mesh.surface_set_uv(Vector2(t0, 0))
-		mesh.surface_add_vertex(to_local(_points[i] + currWidth))
+		mesh.surface_add_vertex(to_local(_points[i] + reference_offset + currWidth))
 		mesh.surface_set_uv(Vector2(t1, 1))
-		mesh.surface_add_vertex(to_local(_points[i] - currWidth))
+		mesh.surface_add_vertex(to_local(_points[i] + reference_offset - currWidth))
 	mesh.surface_end()
 
 func AppendPoint():
-	_points.append(global_transform.origin)
+	_points.append(global_transform.origin - reference_offset)
 	_widths.append([
-		global_transform.basis.x * _fromWidth,
-		global_transform.basis.x * _fromWidth - global_transform.basis.x * _toWidth])
+		relative_basis * _fromWidth,
+		relative_basis * _fromWidth - relative_basis * _toWidth])
 	_lifePoints.append(0.0)
 
 func RemovePoints(i):
