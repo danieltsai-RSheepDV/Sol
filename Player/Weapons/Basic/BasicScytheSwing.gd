@@ -1,8 +1,8 @@
 extends Attack
 
 @export var swingDistance = 2.0
-@export var swingWidth = 2.0
-@export var swingDepth = 2.0
+@export var swingWidth = 3
+@export var swingDepth = 3
 @export var reversed = false
 
 var player
@@ -20,7 +20,7 @@ func init(p):
 	timeIncrement = 0.5 * (1/attackLength)
 	
 	t = 0
-	dir = player.facingDirection
+	dir = player.pointingDirection
 	
 	old_pos = position
 	

@@ -1,7 +1,8 @@
+CSGBox3D
+Node3D
 AnimationPlayer
 Trail3D
 CPUParticles3D
 GPUParticles3D
 DirectionalLight3D
 Sprite3D
-Node3D

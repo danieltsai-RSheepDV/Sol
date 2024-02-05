@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@export var cursor : Node3D
+
 #region Lifecycle
 func _ready():
 	loadScythe(basicScytheAttributes)
@@ -32,6 +34,18 @@ func _physics_process(delta):
 
 var attackObjs = []
 var movementModules = []
+
+var _pointingDirection = Vector3.LEFT
+var pointingDirection : 
+	get:
+		if combo_count > 0:
+			return _pointingDirection
+		else:
+			var d = cursor.position - position
+			d.y = 0
+			d = d.normalized()
+			_pointingDirection = d
+			return d
 
 var combo_count = -1
 const attack_delay = 0

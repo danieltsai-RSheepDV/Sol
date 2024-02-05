@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://338eojugcih8"]
 
 [ext_resource type="Script" path="res://Player/Weapons/Basic/BasicScytheToss.gd" id="1_i3r8q"]
-[ext_resource type="Texture2D" uid="uid://clax1mb25j4l5" path="res://icon.svg" id="2_0qxr6"]
+[ext_resource type="Texture2D" uid="uid://cbmtg3wcgp4mc" path="res://Player/Animations-Sprites/Scythe.png" id="2_dxe7n"]
 [ext_resource type="Script" path="res://Library/trail_3d.gd" id="3_amvea"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmm1w"]
@@ -52,10 +52,10 @@ _data = {
 script = ExtResource("1_i3r8q")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
 cast_shadow = 0
 alpha_cut = 2
-texture = ExtResource("2_0qxr6")
+texture = ExtResource("2_dxe7n")
 
 [node name="Trail3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)

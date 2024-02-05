@@ -25,7 +25,9 @@ func reset():
 	dash.reset()
 
 func input():
-	if dash.t > dash.endT:
+	if dash.t < dash.endT or t < pauseTime:
+		dash.input()
+	else:
 		basic.input()
 
 func move(delta):

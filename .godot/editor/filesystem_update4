@@ -20,3 +20,5 @@ res://Player/Movement/DashMovement.gd
 res://Player/Weapons/Basic/BasicScytheAttributes.tres
 res://Player/Weapons/attack_attributes.gd
 res://Player/Movement/DashToBasicMovement.gd
+res://Test Scenes/Cursor.gd
+res://Player/Weapons/Cursor.gd

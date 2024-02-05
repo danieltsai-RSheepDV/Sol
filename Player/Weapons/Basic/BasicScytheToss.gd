@@ -21,7 +21,7 @@ func init(p):
 	player = p
 	deceleration = (speed * speed) / (2 * maxDistance)
 	
-	dir = player.facingDirection
+	dir = player.pointingDirection
 	dir.y = 0
 	dir = dir.normalized()
 	t = -2.5
