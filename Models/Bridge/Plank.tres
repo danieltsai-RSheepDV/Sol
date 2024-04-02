@@ -1,0 +1,6 @@
+[gd_resource type="ORMMaterial3D" load_steps=2 format=3 uid="uid://cvm4bhldijtwo"]
+
+[ext_resource type="Texture2D" uid="uid://bumndewy7yw3q" path="res://Models/Bridge/Plank.png" id="1_jwml5"]
+
+[resource]
+albedo_texture = ExtResource("1_jwml5")

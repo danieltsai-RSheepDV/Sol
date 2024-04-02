@@ -1,15 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqsroe50yh8n3"]
+[gd_scene load_steps=10 format=3 uid="uid://bqsroe50yh8n3"]
 
 [ext_resource type="Script" path="res://Player/PlayerController.gd" id="1_qok2m"]
 [ext_resource type="Texture2D" uid="uid://ngpdnsbr6tat" path="res://Player/Animations-Sprites/SolIdle.png" id="2_jy28g"]
-[ext_resource type="Texture2D" uid="uid://6rbsr6vapf40" path="res://Test Scenes/360_F_442587657_K24dNb1n25pyFvVHPCmwqkgdz3UjpMUJ.jpg" id="3_r12wk"]
+[ext_resource type="Texture2D" uid="uid://b6ydlnbxuopr7" path="res://Player/DropShadow.png" id="3_7bs3d"]
+[ext_resource type="Material" uid="uid://cdsh58eqp3qn6" path="res://Test Scenes/RoystanToonWaterShader.tres" id="4_q00yu"]
 [ext_resource type="Script" path="res://Player/Weapons/Cursor.gd" id="4_yuwx1"]
+[ext_resource type="PackedScene" uid="uid://bijifulfix2e7" path="res://Models/Bridge/Bridge.tscn" id="5_h8uoq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t5mhs"]
 size = Vector3(2, 2, 0.1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fknm2"]
-albedo_texture = ExtResource("3_r12wk")
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_6v6sc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8tgxs"]
 size = Vector3(100, 0.1, 100)
@@ -17,7 +18,7 @@ size = Vector3(100, 0.1, 100)
 [node name="CombatTest" type="Node3D"]
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("cursor")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49839, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00723702, 1.33905, -0.414885)
 script = ExtResource("1_qok2m")
 cursor = NodePath("../Cursor")
 
@@ -25,7 +26,8 @@ cursor = NodePath("../Cursor")
 shape = SubResource("BoxShape3D_t5mhs")
 
 [node name="Sprite3D" type="Sprite3D" parent="Player"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.180982, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.171761, 0)
+layers = 2
 cast_shadow = 0
 flip_h = true
 alpha_cut = 2
@@ -38,13 +40,21 @@ transform = Transform3D(1, -4.75484e-16, 3.24962e-16, 3.24962e-16, 0.931691, 0.3
 transform = Transform3D(1, 0, 0, 0, 0.99863, 0.052336, 0, -0.052336, 0.99863, 2.08165e-12, -1.19209e-07, 13.89)
 fov = 70.0
 
+[node name="Decal" type="Decal" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -2.026, 0)
+size = Vector3(2, 6.33691, 2)
+texture_albedo = ExtResource("3_7bs3d")
+modulate = Color(1, 1, 1, 0.894118)
+upper_fade = 1e-05
+cull_mask = 1048573
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.994, -1.23112, 0)
 size = Vector3(100, 0.1, 100)
-material = SubResource("StandardMaterial3D_fknm2")
+material = SubResource("ORMMaterial3D_6v6sc")
 
 [node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.23112, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.94793, 0)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
@@ -53,13 +63,16 @@ shape = SubResource("BoxShape3D_8tgxs")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Floor"]
 size = Vector3(100, 0.1, 100)
-material = SubResource("StandardMaterial3D_fknm2")
+material = ExtResource("4_q00yu")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.664878, 0.746952, 0, -0.746952, 0.664878, -3.90758, 2.94059, 6.078)
+transform = Transform3D(1, 0, 0, 0, 0.664878, 0.746952, 0, -0.746952, 0.664878, -33.1801, 13.9309, 15.2509)
 shadow_enabled = true
 
 [node name="Cursor" type="Node3D" parent="." node_paths=PackedStringArray("camera", "player")]
 script = ExtResource("4_yuwx1")
 camera = NodePath("../Player/Cam/Camera3D")
 player = NodePath("../Player")
+
+[node name="Bridge" parent="." instance=ExtResource("5_h8uoq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.79382, -1.03998, -1.80663)

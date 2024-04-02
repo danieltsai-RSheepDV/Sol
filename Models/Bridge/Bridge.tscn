@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bijifulfix2e7"]
+
+[ext_resource type="PackedScene" uid="uid://dvgdkf0cel5ae" path="res://Models/Bridge/bridge.blend" id="1_f0ob8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1p2oj"]
+size = Vector3(32.2924, 1.87399, 12.8052)
+
+[node name="Bridge" type="StaticBody3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_f0ob8")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0107064, 0.00156984, 0.0969238)
+shape = SubResource("BoxShape3D_1p2oj")
