@@ -1,0 +1,6 @@
+[gd_resource type="ORMMaterial3D" load_steps=2 format=3 uid="uid://r3hk7e6st4ge"]
+
+[ext_resource type="Texture2D" uid="uid://c7kjrvel4jloh" path="res://Models/Lanterns/Lantern2.png" id="1_xi3hm"]
+
+[resource]
+albedo_texture = ExtResource("1_xi3hm")
