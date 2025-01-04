@@ -54,7 +54,7 @@ func _process(delta):
 		direction = (position - player.position)
 		direction = direction.normalized()
 		
-		if(position.distance_to(player.position) < 0.1):
+		if(position.distance_to(player.position) < 0.3):
 			completed = true
 
 func calcLocalPos(t0):

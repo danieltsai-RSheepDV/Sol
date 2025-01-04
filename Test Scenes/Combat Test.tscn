@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqsroe50yh8n3"]
+[gd_scene load_steps=11 format=3 uid="uid://bqsroe50yh8n3"]
 
 [ext_resource type="Script" path="res://Player/PlayerController.gd" id="1_qok2m"]
 [ext_resource type="Texture2D" uid="uid://ngpdnsbr6tat" path="res://Player/Animations-Sprites/SolIdle.png" id="2_jy28g"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://cdsh58eqp3qn6" path="res://Test Scenes/RoystanToonWaterShader.tres" id="4_q00yu"]
 [ext_resource type="Script" path="res://Player/Weapons/Cursor.gd" id="4_yuwx1"]
 [ext_resource type="PackedScene" uid="uid://bijifulfix2e7" path="res://Models/Bridge/Bridge.tscn" id="5_h8uoq"]
+[ext_resource type="PackedScene" uid="uid://badll6h1o5vt8" path="res://Models/Doggo/Doggo.blend" id="7_d5vys"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t5mhs"]
 size = Vector3(2, 2, 0.1)
@@ -18,7 +19,7 @@ size = Vector3(100, 0.1, 100)
 [node name="CombatTest" type="Node3D"]
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("cursor")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00723702, 1.33905, -0.414885)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00723702, 1.33905, 0.630135)
 script = ExtResource("1_qok2m")
 cursor = NodePath("../Cursor")
 
@@ -27,11 +28,15 @@ shape = SubResource("BoxShape3D_t5mhs")
 
 [node name="Sprite3D" type="Sprite3D" parent="Player"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.171761, 0)
+visible = false
 layers = 2
 cast_shadow = 0
 flip_h = true
 alpha_cut = 2
 texture = ExtResource("2_jy28g")
+
+[node name="Doggo" parent="Player" instance=ExtResource("7_d5vys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.924491, 0)
 
 [node name="Cam" type="Node3D" parent="Player"]
 transform = Transform3D(1, -4.75484e-16, 3.24962e-16, 3.24962e-16, 0.931691, 0.363251, -4.75484e-16, -0.363251, 0.931691, 0, 0, 0)
@@ -41,7 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99863, 0.052336, 0, -0.052336, 0.99863, 2.
 fov = 70.0
 
 [node name="Decal" type="Decal" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -2.026, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -4.13471, 0)
 size = Vector3(2, 6.33691, 2)
 texture_albedo = ExtResource("3_7bs3d")
 modulate = Color(1, 1, 1, 0.894118)

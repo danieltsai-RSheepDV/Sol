@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dvgdkf0cel5ae"
-path="res://.godot/imported/bridge.blend-cd54a9e5ce98e933cf8d50ae0f9620d1.scn"
+uid="uid://badll6h1o5vt8"
+path="res://.godot/imported/Doggo.blend-cd0df518fa0cdcbfafda60b507a23462.scn"
 
 [deps]
 
-source_file="res://Models/Bridge/bridge.blend"
-dest_files=["res://.godot/imported/bridge.blend-cd54a9e5ce98e933cf8d50ae0f9620d1.scn"]
+source_file="res://Models/Doggo/Doggo.blend"
+dest_files=["res://.godot/imported/Doggo.blend-cd0df518fa0cdcbfafda60b507a23462.scn"]
 
 [params]
 
@@ -33,28 +33,20 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"Black": {
+"Doggo": {
+"use_external/enabled": true,
+"use_external/path": "res://Models/Doggo/DoggoMaterial.tres"
+},
+"Outline": {
 "use_external/enabled": true,
 "use_external/path": "res://Models/PureBlack.tres"
-},
-"Plank": {
-"use_external/enabled": true,
-"use_external/path": "res://Models/Bridge/Plank.tres"
-},
-"Post": {
-"use_external/enabled": true,
-"use_external/path": "res://Models/Bridge/Post.tres"
-},
-"Rope": {
-"use_external/enabled": true,
-"use_external/path": "res://Models/Bridge/Rope.tres"
 }
 }
 }
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
-blender/nodes/punctual_lights=true
-blender/nodes/cameras=true
+blender/nodes/punctual_lights=false
+blender/nodes/cameras=false
 blender/nodes/custom_properties=true
 blender/nodes/modifiers=1
 blender/meshes/colors=false
